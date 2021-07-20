@@ -1,0 +1,530 @@
+Index: assets/style/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>html,\nbody {\n    height: 100%;\n    padding: 0;\n    margin: 0;\n}\n\n* {\n    font-family: Arial, Helvetica, sans-serif;\n    color: #333;\n    box-sizing: border-box;\n}\n\nh3 {\n    color: #e5e5e5;\n}\n\na h3:hover {\n    color: #fff;\n}\n\na {\n    text-decoration: none;\n}\n\n.wrapper {\n    min-width: 1050px;\n    min-height: 100%;\n    background-color: #141414;\n}\n\n.signInContainer {\n    background-color: #efefee;\n    height: 100vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.column {\n    background-color: #fff;\n    min-height: 300px;\n    max-height: 100%;\n    width: 450px;\n    box-shadow: rgba(0,0,0, 0.1) 0 1px 2px;\n    padding: 20px 35px;\n    overflow-y: auto;\n}\n\n.column form {\n    display: flex;\n    flex-direction: column;\n    padding-top: 24px;\n}\n\n.column form input[type=\"text\"],\n.column form input[type=\"email\"],\n.column form input[type=\"password\"] {\n    font-size: 14px;\n    margin: 10px 0;\n    border: none;\n    border-bottom: 1px solid #dedede;\n}\n\n.column form input[type=\"submit\"] {\n    background-color: #4285f4;\n    color: #fff;\n    height: 36px;\n    width: 88px;\n    border: none;\n    border-radius: 3px;\n    font-weight: 500;\n    margin-top: 10px;\n    margin-bottom: 20px;\n    font-size: 16px;\n}\n\n.column .header {\n    padding: 20px 0;\n}\n\n.column h3 {\n    font-size: 24px;\n    font-weight: 400;\n    line-height: 32px;\n    margin: 0;\n    padding-top: 16px;\n    color: #000;\n}\n\n.column .header span {\n    font-size: 14px;\n}\n\n.column .header img {\n    width: 100px;\n}\n\n.signInMessage {\n    font-size: 14px;\n    font-weight: 400;\n    text-decoration: none;\n}\n\n.errorMessage {\n    color: #f00;\n    font-size: 14px;\n    font-weight: 400;\n    text-align: center;\n}\n\n.previewImage,\n.previewVideo {\n    width: 100%;\n}\n\n.previewContainer {\n    position: relative;\n    display: flex;\n}\n\n.previewContainer.small {\n    width: 230px;\n    height: 129px;\n    margin-right: 4px;\n    display: inline-flex;\n}\n\n.previewContainer.small img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n}\n\n.previewOverlay {\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0,0,0,0.3);\n    position: absolute;\n}\n\n.previewOverlay .mainDetails h3 {\n    color: #fff;\n    font-size: 40px;\n    margin: 15px 0;\n}\n\n.previewOverlay .mainDetails {\n    position: relative;\n    top: 35%;\n    margin-left: 50px;\n    display: flex;\n    flex-direction: column;\n}\n\n.mainDetails button {\n    background-color: rgba(51,51,51,0.4);\n    color: #fff;\n    border: none;\n    min-width: 150px;\n    padding: 0 38px;\n    height: 50px;\n    max-height: 50px;\n    font-size: 18px;\n    border-radius: 2px;\n    margin-bottom: 15px;\n    margin-right: 5px;\n    cursor: pointer;\n}\n\nbutton i {\n    color: inherit;\n}\n\n.mainDetails button:hover {\n    background-color: #e6e6e6;\n    color: #000;\n}\n\n.category {\n    display: flex;\n    flex-direction: column;\n    padding: 10px 0;\n}\n\n.entities,\n.videos {\n    overflow-x: auto;\n    overflow-y: hidden;\n    white-space: nowrap;\n}\n\n.previewCategories {\n    padding: 0 50px;\n}\n\n.errorBanner {\n    color: #fff;\n    position: absolute;\n    top: 25%;\n    width: 100%;\n    text-align: center;\n    font-size: 18px;\n}\n\n.season {\n    display: flex;\n    flex-direction: column;\n    padding: 10px 50px;\n}\n\n.episodeContainer {\n    display: inline-flex;\n    justify-content: center;\n    margin-right: 4px;\n}\n\n.episodeContainer .contents {\n    display: flex;\n    flex-direction: column;\n    width: 230px;\n}\n\n.episodeContainer img {\n    width: 230px;\n    height: 129px;\n    object-fit: cover;\n}\n\n.episodeContainer .videoInfo h4,\n.episodeContainer .videoInfo span {\n    color: #fff;\n    width: 100%;\n    white-space: normal;\n}\n\n.episodeContainer .videoInfo {\n    max-height: 200px;\n    overflow-y: auto;\n}\n\n.previewCategories.noScroll .category .entities {\n    white-space: normal;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/assets/style/style.css b/assets/style/style.css
+--- a/assets/style/style.css	(revision e67b8d6da6659948270d19078267f51879558207)
++++ b/assets/style/style.css	(date 1626186892174)
+@@ -241,4 +241,31 @@
+ 
+ .previewCategories.noScroll .category .entities {
+     white-space: normal;
++}
++
++.watchContainer video {
++    width: 100%;
++}
++
++
++.videoControls {
++    position: absolute;
++    width: 100%;
++    z-index: 1;
++    display: flex;
++    align-items: center;
++    background-color: rgba(0, 0, 0, 0.3);
++}
++
++.videoControls h1 {
++    color: #fff;
++}
++
++.videoControls button {
++    font-size: 50px;
++    padding: 50px;
++    color: #fff;
++    background-color: transparent;
++    border: none;
++    cursor: pointer;
+ }
+\ No newline at end of file
+Index: assets/js/script.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function volumeToggle(button) {\n    var muted = $(\".previewVideo\").prop(\"muted\");\n    $(\".previewVideo\").prop(\"muted\", !muted);\n\n    $(button).find(\"i\").toggleClass(\"fa-volume-mute\");\n    $(button).find(\"i\").toggleClass(\"fa-volume-up\");\n}\n\nfunction previewEnded() {\n    $(\".previewVideo\").toggle();\n    $(\".previewImage\").toggle();\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/assets/js/script.js b/assets/js/script.js
+--- a/assets/js/script.js	(revision e67b8d6da6659948270d19078267f51879558207)
++++ b/assets/js/script.js	(date 1626602710010)
+@@ -9,4 +9,78 @@
+ function previewEnded() {
+     $(".previewVideo").toggle();
+     $(".previewImage").toggle();
++}
++
++function goBack() {
++    window.history.back();
++}
++
++function startHideTimer() {
++    var timeout = null;
++
++    $(document).on("mousemove", function() {
++        clearTimeout(timeout);
++        $(".watchNav").fadeIn();
++
++        timeout = setTimeout(function() {
++            $(".watchNav").fadeOut();
++        }, 2000);
++    })
++}
++
++function initVideo(videoId, username) {
++    startHideTimer();
++    setStartTime(videoId, username);
++    updateProgressTimer(videoId, username);
++}
++
++function updateProgressTimer(videoId, username) {
++    addDuration(videoId, username);
++
++    var timer;
++
++    $("video").on("playing", function(event) {
++        window.clearInterval(timer);
++        timer = window.setInterval(function() {
++            updateProgress(videoId, username, event.target.currentTime);
++        }, 3000);
++    })
++        .on("ended", function() {
++            setFinished(videoId, username);
++            window.clearInterval(timer);
++        })
++}
++
++function addDuration(videoId, username) {
++    $.post("ajax/addDuration.php", { videoId: videoId, username: username }, function(data) {
++        if(data !== null && data !== "") {
++        }
++    })
++}
++
++function updateProgress(videoId, username, progress) {
++    $.post("ajax/updateDuration.php", { videoId: videoId, username: username, progress: progress }, function(data) {
++        if(data !== null && data !== "") {
++        }
++    })
++}
++
++function setFinished(videoId, username) {
++    $.post("ajax/setFinished.php", { videoId: videoId, username: username }, function(data) {
++        if(data !== null && data !== "") {
++        }
++    })
++}
++
++function setStartTime(videoId, username) {
++    $.post("ajax/getProgress.php", { videoId: videoId, username: username }, function(data) {
++        if(isNaN(data)) {
++            return;
++        }
++
++        $("video").on("canplay", function() {
++            this.currentTime = data;
++            $("video").off("canplay");
++        })
++    })
+ }
+\ No newline at end of file
+Index: ajax/addDuration.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ajax/addDuration.php b/ajax/addDuration.php
+--- a/ajax/addDuration.php	(revision e67b8d6da6659948270d19078267f51879558207)
++++ b/ajax/addDuration.php	(date 1626529055633)
+@@ -1,1 +1,26 @@
+ <?php
++  require_once("../includes/config.php");
++  
++  if(isset($_POST["videoId"]) && isset($_POST["username"])) {
++    $query = $con->prepare("SELECT * FROM videoProgress
++                                   WHERE username=:username AND videoId=:videoId");
++    $query->bindValue(":username", $_POST["username"]);
++    $query->bindValue(":videoId", $_POST["videoId"]);
++
++    $query->execute();
++
++    if($query->rowCount() == 0) {
++
++      $query = $con->prepare("INSERT INTO videoProgress (username, videoId)
++                                     VALUES(:username, :videoId)");
++      $query->bindValue(":username", $_POST["username"]);
++      $query->bindValue(":videoId", $_POST["videoId"]);
++      
++      $query->execute();
++    }
++  }
++
++  else
++  {
++    echo "No videoId or username passed into file";
++  }
+\ No newline at end of file
+Index: includes/classes/Video.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nclass Video {\n    private $con, $sqlData, $entity;\n\n    public function __construct($con, $input) {\n        $this->con = $con;\n\n        if(is_array($input)) {\n            $this->sqlData = $input;\n        }\n        else {\n            $query = $this->con->prepare(\"SELECT * FROM videos WHERE id=:id\");\n            $query->bindValue(\":id\", $input);\n            $query->execute();\n\n            $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);\n        }\n\n        $this->entity = new Entity($con, $this->sqlData[\"entityId\"]);\n    }\n\n    public function getId() {\n        return $this->sqlData[\"id\"];\n    }\n\n    public function getTitle() {\n        return $this->sqlData[\"title\"];\n    }\n\n    public function getDescription() {\n        return $this->sqlData[\"description\"];\n    }\n\n    public function getFilePath() {\n        return $this->sqlData[\"filePath\"];\n    }\n\n    public function getThumbnail() {\n        return $this->entity->getThumbnail();\n    }\n\n    public function getEpisodeNumber() {\n        return $this->sqlData[\"episode\"];\n    }\n\n    public function incrementViews() {\n        $query = $this->con->prepare(\"UPDATE videos SET views=views+1 WHERE id=:id\");\n        $query->bindValue(\":id\", $this->getId());\n        $query->execute();\n    }\n}\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/includes/classes/Video.php b/includes/classes/Video.php
+--- a/includes/classes/Video.php	(revision e67b8d6da6659948270d19078267f51879558207)
++++ b/includes/classes/Video.php	(date 1626607006850)
+@@ -42,6 +42,10 @@
+     public function getEpisodeNumber() {
+         return $this->sqlData["episode"];
+     }
++    
++    public function getSeasonNumber() {
++      return $this->sqlData["season"];
++    }
+ 
+     public function incrementViews() {
+         $query = $this->con->prepare("UPDATE videos SET views=views+1 WHERE id=:id");
+Index: watch.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nrequire_once(\"includes/header.php\");\n\nif(!isset($_GET[\"id\"])) {\n    ErrorMessage::show(\"No ID passed into page\");\n}\n\n$video = new Video($con, $_GET[\"id\"]);\n$video->incrementViews();\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/watch.php b/watch.php
+--- a/watch.php	(revision e67b8d6da6659948270d19078267f51879558207)
++++ b/watch.php	(date 1626440783441)
+@@ -7,4 +7,19 @@
+ 
+ $video = new Video($con, $_GET["id"]);
+ $video->incrementViews();
+-?>
+\ No newline at end of file
++?>
++
++<div class="watchContainer">
++  
++  <div class="videoControls watchNav">
++    <button onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
++    <h1><?php echo $video->getTitle(); ?></h1>
++  </div>
++  
++  <video controls autoplay>
++    <source src="<?php echo $video->getFilePath(); ?>" type="video/mp4">
++  </video>
++</div>
++<script>
++    initVideo("<?php echo $video->getId(); ?>", "<?php echo $userLoggedIn; ?>")
++</script>
+\ No newline at end of file
+Index: ajax/updateDuration.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ajax/updateDuration.php b/ajax/updateDuration.php
+new file mode 100644
+--- /dev/null	(date 1626596970186)
++++ b/ajax/updateDuration.php	(date 1626596970186)
+@@ -0,0 +1,17 @@
++<?php
++  
++  require_once("../includes/config.php");
++  
++  if (isset($_POST["videoId"]) && isset($_POST["username"]) && isset($_POST["progress"])) {
++    echo $_POST["username"];
++    $query = $con->prepare("UPDATE videoProgress SET progress=:progress,
++                                    dateModified=NOW() WHERE username=:username AND videoId=:videoId");
++    $query->bindValue(":username", $_POST["username"]);
++    $query->bindValue(":videoId", $_POST["videoId"]);
++    $query->bindValue(":progress", $_POST["progress"]);
++    
++    $query->execute();
++    
++  } else {
++    echo "No videoId or username passed into file";
++  }
+\ No newline at end of file
+Index: ajax/setFinished.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ajax/setFinished.php b/ajax/setFinished.php
+new file mode 100644
+--- /dev/null	(date 1626600987409)
++++ b/ajax/setFinished.php	(date 1626600987409)
+@@ -0,0 +1,15 @@
++<?php
++  
++  require_once("../includes/config.php");
++  
++  echo $_POST["username"];
++  if (isset($_POST["videoId"]) && isset($_POST["username"])) {
++    $query = $con->prepare("UPDATE videoProgress SET finished=1, progress=0
++                                    WHERE username=:username AND videoId=:videoId");
++    $query->bindValue(":username", $_POST["username"]);
++    $query->bindValue(":videoId", $_POST["videoId"]);
++    $query->execute();
++    
++  } else {
++    echo "No videoId or username passed into file";
++  }
+Index: assets/js/script-text.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/assets/js/script-text.js b/assets/js/script-text.js
+new file mode 100644
+--- /dev/null	(date 1626597306559)
++++ b/assets/js/script-text.js	(date 1626597306559)
+@@ -0,0 +1,117 @@
++'use strict';
++
++function volumeToggle(button) {
++    var muted = $(".previewVideo").prop("muted");
++    $(".previewVideo").prop("muted", !muted);
++
++    $(button).find("i").toggleClass("fa-volume-mute");
++    $(button).find("i").toggleClass("fa-volume-up");
++}
++
++function previewEnded() {
++    $(".previewVideo").toggle();
++    $(".previewImage").toggle();
++}
++
++function goBack() {
++    window.history.back();
++}
++
++
++function startHideTimer() {
++    let timeout = null
++    const watchNav = document.querySelector('.watchNav')
++
++    document.addEventListener('mousemove', e => {
++        clearTimeout(timeout)
++        fadeIn(watchNav)
++        timeout = setTimeout(function() {
++            fadeOut(watchNav)
++        }, 2000)
++    })
++}
++
++function fadeIn(className)
++{
++    className.style.transition = ".5s";
++    className.style.opacity = "1"
++}
++
++function fadeOut(className)
++{
++    className.style.transition = ".5s";
++    className.style.opacity = "0"
++}
++
++function initVideo(videoId, userLoggedIn)
++{
++    startHideTimer()
++    updateProgressTimer(videoId, userLoggedIn)
++}
++
++function updateProgressTimer(videoId, username)
++{
++    addDuration(videoId, username)
++
++    let timer
++
++    $("video").on("playing", function(event) {
++        console.log("hi")
++        window.clearInterval();
++        timer = window.setInterval(function() {
++            updateProgress(videoId, username, event.target.currentTime)
++        }, 3000)
++    })
++        .on("ended", function() {
++            window.clearInterval(timer);
++        })
++}
++
++function addDuration(videoId, username)
++{
++    // var xhr = new XMLHttpRequest()
++    // xhr.open('POST', '/ajax/addDuration.php')
++    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
++    // xhr.onreadystatechange = function (data) {
++    //     alert(data)
++    // }
++    // console.log(xhr);
++
++    $.post("ajax/addDuration.php", { videoId: videoId, username: username }, function(data) {
++        if(data !== null && data !== "") {
++
++        }
++    })
++}
++
++function updateProgress(videoId, username, progress) {
++    $.post("ajax/updateDuration.php", { videoId: videoId, username: username, progress: progress }, function(data) {
++        if(data !== null && data !== "") {
++            alert(progress)
++        }
++    })
++    console.log(progress)
++}
++
++function setFinished(videoId, username, progress) {
++    $.post("ajax/setFinished.php", { videoId: videoId, username: username }, function(data) {
++        if(data !== null && data !== "") {
++
++        }
++    })
++}
++
++// function addDuration(videoId, username)
++// {
++//     fetch('ajax/addDuration.php', {
++//         method: 'POST',
++//     })
++//         .then(response => {
++//             console.log(response)
++//             alert(response)
++//         })
++//         .catch(err => {
++//             alert(err.message);
++//             location.reload();
++//         });
++// }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5f955582-cc5b-433f-82e8-8f9a6b048a3d\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/assets/images/logo.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/assets/images/logo.png\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/assets/js/script.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/assets/js/script.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/assets/style/style.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/assets/style/style.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/entity.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/entity.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/Account.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/Account.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/CategoryContainers.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/CategoryContainers.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/Constants.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/Constants.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/Entity.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/Entity.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/EntityProvider.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/EntityProvider.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/ErrorMessage.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/ErrorMessage.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/FormSanitizer.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/FormSanitizer.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/PreviewProvider.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/PreviewProvider.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/Season.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/Season.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/SeasonProvider.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/SeasonProvider.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/classes/Video.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/classes/Video.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/config.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/config.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/includes/header.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/includes/header.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/index.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/index.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/login.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/login.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/register.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/register.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/watch.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/watch.php\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <execution />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"SCSS File\" />\n        <option value=\"CSS File\" />\n        <option value=\"JavaScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1uSv2Ier6rqEIg7IwitlDl1CNSn\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/assets/style\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"SeasonProvider.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/includes/classes/SeasonProvider.php\">\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"PHP Script.SeasonProvider.php\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5f955582-cc5b-433f-82e8-8f9a6b048a3d\" name=\"Default Changelist\" comment=\"\" />\n      <created>1624671595498</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1624671595498</updated>\n      <workItem from=\"1624671596594\" duration=\"59567000\" />\n      <workItem from=\"1625279334328\" duration=\"831000\" />\n      <workItem from=\"1625586075076\" duration=\"4013000\" />\n      <workItem from=\"1625921085630\" duration=\"316000\" />\n      <workItem from=\"1626051729903\" duration=\"16444000\" />\n      <workItem from=\"1626157699652\" duration=\"5232000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" suspend=\"NONE\" type=\"php\">\n          <url>file://$PROJECT_DIR$/includes/classes/CategoryContainers.php</url>\n          <line>8</line>\n          <log-expression expression=\"    private $con, $username;&#10;    &#10;    public function __construct($con, $username) {&#10;      $this-&gt;con = $con;&#10;      $this-&gt;username = $username;&#10;\" language=\"PHP\" />\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e67b8d6da6659948270d19078267f51879558207)
++++ b/.idea/workspace.xml	(date 1626607553210)
+@@ -5,27 +5,16 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5f955582-cc5b-433f-82e8-8f9a6b048a3d" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/ajax/getProgress.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ajax/setFinished.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ajax/updateDuration.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/assets/js/script-text.js" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/includes/classes/videoProvider.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/assets/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/logo.png" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/ajax/addDuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/addDuration.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/assets/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/style.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/entity.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Account.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/CategoryContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/CategoryContainers.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/Constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Constants.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/Entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Entity.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/EntityProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/EntityProvider.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/ErrorMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/ErrorMessage.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/FormSanitizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/FormSanitizer.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/PreviewProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/PreviewProvider.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/Season.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Season.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/classes/SeasonProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/SeasonProvider.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/includes/classes/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Video.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/watch.php" beforeDir="false" afterPath="$PROJECT_DIR$/watch.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -98,7 +87,9 @@
+       <workItem from="1625586075076" duration="4013000" />
+       <workItem from="1625921085630" duration="316000" />
+       <workItem from="1626051729903" duration="16444000" />
+-      <workItem from="1626157699652" duration="5232000" />
++      <workItem from="1626157699652" duration="40148000" />
++      <workItem from="1626444651011" duration="10759000" />
++      <workItem from="1626530293612" duration="12792000" />
+     </task>
+     <servers />
+   </component>
+@@ -115,6 +106,7 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: ajax/getProgress.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ajax/getProgress.php b/ajax/getProgress.php
+new file mode 100644
+--- /dev/null	(date 1626602691127)
++++ b/ajax/getProgress.php	(date 1626602691127)
+@@ -0,0 +1,17 @@
++<?php
++  require_once("../includes/config.php");
++  
++  if(isset($_POST["videoId"]) && isset($_POST["username"])) {
++    $query = $con->prepare("SELECT progress FROM videoProgress
++                            WHERE username=:username AND videoId=:videoId");
++    $query->bindValue(":username", $_POST["username"]);
++    $query->bindValue(":videoId", $_POST["videoId"]);
++    
++    $query->execute();
++    
++    echo $query->fetchColumn();
++  }
++  else {
++    echo "No videoId or username passed into file";
++  }
++?>
+\ No newline at end of file
+Index: includes/classes/videoProvider.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/includes/classes/videoProvider.php b/includes/classes/videoProvider.php
+new file mode 100644
+--- /dev/null	(date 1626607998755)
++++ b/includes/classes/videoProvider.php	(date 1626607998755)
+@@ -0,0 +1,22 @@
++<?php
++  
++  
++  class videoProvider
++  {
++    public static function getUpNext($con, $currentVideo) {
++      $query = $con->prepare("SELECT * FROM videos
++                              WHERE entityId=:entityId AND videoId != :videoID
++                              AND (
++                                ( season = :season AND episode > :episode OR season > :season)
++                              )
++                              ORDER BY season, episode ASC LIMIT 1");
++      $query->bindData(":entityId", $currentVideo->getEntityId());
++      $query->bindData(":season", $currentVideo->getSeasonNumber());
++      $query->bindData(":episode", $currentVideo->getEpisodeNumber());
++      $query->bindData(":videoId", $currentVideo->getId());
++      
++      $query->execute();
++      
++      if($query->rowCount() == )
++    }
++  }
+\ No newline at end of file
